@@ -1,0 +1,54 @@
+
+// const Nub = () => {
+//   return (
+//     <React.Fragment>
+//       <Nub_0 
+//         title="link 1"
+//         data="&#91109;"
+//      />
+//       {/* more simplest form */}
+//       <Nub_0
+//         title={Sdata[2].title} 
+//       />
+//       {Pdata.map((val,index)=>{
+//           return(
+//               <Nub_2
+//               key={val.id}
+//               title={val.title}
+//               />
+//           )
+//       }) 
+//       }
+//       {Qdata.map((val,index)=>{
+//           return(
+//             <Nub_1
+//             key={val.id}
+//             title={val.title} 
+//           />
+//           );          
+//       })}
+//     </React.Fragment>
+//   );
+// };
+
+
+
+
+// const Nub_0 = (props) => {
+//   return (
+//     <React.Fragment>
+//         <div>{props.title} <span>{props.data}</span></div>  
+//     </React.Fragment>
+//   );
+// };
+
+// const Nub_1=(val)=>{
+//     return(
+//         <React.Fragment>
+//             <div>
+//                 {val.title}
+//             </div>
+//         </React.Fragment>
+//     )
+// }
+
