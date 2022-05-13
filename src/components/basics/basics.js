@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from "react";
-import {Pdata } from "./sdata";
+import {Pdata,SearchData } from "./sdata";
 import {SearchIcon,Logo,Ques,Bell,Arrow, Building, RightHook, Collapse,Filter,Sort} from "./like.tsx"
-import  "../images/logo.296dc52efca38db6751e1b8b80de7b05.svg"
+import Log from "../images/logo.296dc52efca38db6751e1b8b80de7b05.svg"
+import "../css/style.css"
 
 
 
@@ -17,7 +18,7 @@ const Nub = () => {
         <Nub_1 key={val.id} title={val.title} link={val.link} icon={val.icon} frIcon={val.frIcon}/>
         )})}
         </div>
-        <div><Main /></div>
+        <div><Main data={SearchData} /></div>
       </div>
     </React.Fragment>
   );
@@ -54,7 +55,8 @@ const Header=(props)=>{
   const [name, setName] = useState("");
   return(
     <header>
-      <div className="">
+      <div className="LOGO">
+        <img src={Log} alt="Logo" />
       </div>
       
       <div className="">
@@ -76,21 +78,46 @@ const Header=(props)=>{
 }
 
 
-const Main=()=>{
+const Main=({placeholder,data})=>{
+
+  const [filterData,setfilterData]=useState([])
+
+  const handleFilter=(e)=>{
+    const searchWord=e.target.value;
+    console.log(searchWord)
+    const newFilter=data.filter((value)=>{
+      return value.option.includes(searchWord.toLowerCase());
+  })
+  if(searchWord===""){
+    setfilterData([])
+  }
+    else{
+      setfilterData(newFilter);
+    }
+  };
+
   return(
     <div className="right">
 
       <div className="tag">
         <h4>pending contract reviews (20)</h4>
-        <form className="search_input">
-          <div>{<SearchIcon />}</div>
-          <input type="text" placeholder="Search in list" id="searchbox" />
-          <ul class="drop"></ul>
+        <form>
+          <div className="search_input">
+            <div>{<SearchIcon />}</div>
+            <input type="text" placeholder={placeholder} id="searchbox" onChange={handleFilter} />
+          </div>
+          {filterData.length!==0 && (
+            <div className="searcher">
+              {filterData.map((value,key)=>{
+                return( <span key={value.id}>{value.option}</span>
+              )})}
+            </div>
+          )}
         </form>
         <div className="filter">
           <div><span>{<Filter />}</span> filter</div>
         </div>
-        <div class="sort">
+        <div className="sort">
           <div><span>{<Sort />}</span>sort</div>
         </div>
       </div>
@@ -111,6 +138,20 @@ const Main=()=>{
           <p><span>shane marine services private</span><span>ism-doc (intermediate)</span></p>
         </div>
       </div>
+
+
+      <div className="vlog">
+        <div className="left">
+          <p><span>1 day left</span><span>proposed date of audit:10-Apr-2022</span><span>Mumbai</span></p>
+          <p><span>{<Building />}</span><span>shane marine private</span><span>{<RightHook />}</span></p>
+        </div>
+        <div className='right'>
+          <p><span>Requested by</span><span>Audit/Survey Tape </span></p>
+          <p><span>------------------</span><span>-------------------</span></p>
+          <p><span>Shane Marine Serivces Private</span><span>ISM-SMC</span></p>
+        </div>
+      </div>
+
     </div>
   )
 }

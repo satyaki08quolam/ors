@@ -57,10 +57,35 @@ const Pdata=[
     }
 ]
 
+const SearchData=[
+    {
+        id:1,
+        option:"option 1"
+    },
+    {
+        id:2,
+        option:"option 2"
+    },
+    {
+        id:3,
+        option:"option 3"
+    },
+    {
+        id:4,
+        option:"option 4"
+    },
+    {
+        id:5,
+        option:"option 5"
+    },
+    {
+        id:6,
+        option:"option 6"
+    }
+]
 
 
 
 
 
-
-export {Pdata};
+export {Pdata, SearchData};

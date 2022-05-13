@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ++++ header design starts here ++++++++ */
+header .LOGO{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .LOGO img{
+    display: block;
+    height:auto;
+}
+
+
+
+
+/* ++++++++++++++++++++ Vlog +++++++++++++++++++++++++++++++++++++ */
+.vlog{
+    border:2px solid red;
+    display: flex;
+}
+.vlog>*{
+    flex:1;
+}
+
+.vlog .right{
+    display: grid;
+    grid-auto-flow:column;
+}
+.vlog .right>*{
+    border:2px solid;
+}
+.vlog .right p{
+    display:grid;
+}
